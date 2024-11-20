@@ -66,4 +66,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=manuel-fami_bobApp_front
+        run: sonar-scanner -Dsonar.projectKey=manuel-fami_bobApp_front -Dsonar.sources=src -Dsonar.tests=src -Dsonar.typescript.lcov.reportPaths=coverage/lcov-report/lcov-report.json -Dsonar.sourceEncoding=UTF-8
