@@ -70,7 +70,7 @@ jobs:
           args: >
             -Dsonar.projectKey=manuel-fami_bobApp_front
             -Dsonar.organization=Manuel
-            -Dsonar.sources=./src/app
+            -Dsonar.sources=front/src/app
             -Dsonar.sourceEncoding=UTF-8
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.test.sources=./src/app
