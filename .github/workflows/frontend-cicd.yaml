@@ -62,13 +62,9 @@ jobs:
           overwrite: true
           if-no-files-found: error
 
-      - name: Install SonarScanner
-        run: |
-          curl -sS https://get.sonarqube.org/sonar-scanner-cli/sonar-scanner-cli-4.6.2-linux.zip -o sonar-scanner.zip
-          unzip sonar-scanner.zip
-          sudo mv sonar-scanner-*/bin/sonar-scanner /usr/local/bin/
-
-      - name: SonarQube analysis
-        run: sonar-scanner -Dsonar.projectKey=manuel-fami_bobApp_front -Dsonar.sources=src -Dsonar.tests=src -Dsonar.typescript.lcov.reportPaths=coverage/lcov-report/lcov-report.json -Dsonar.sourceEncoding=UTF-8
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: front
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
