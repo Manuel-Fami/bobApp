@@ -21,7 +21,7 @@ public class JsonReader {
         try {
             this.getJsonFile();
         } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 

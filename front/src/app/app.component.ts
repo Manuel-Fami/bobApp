@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   public getRandomJoke(): void {
-    console.log('test modification front');
     this.jokesService.getRandomJoke();
   }
 }

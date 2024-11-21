@@ -17,7 +17,6 @@ export class JokesService {
   }
 
   public getRandomJoke(): void {
-    console.log('test');
     this.httpClient
       .get<Joke>(this.pathService)
       .subscribe((joke: Joke) => this.subject.next(joke));
