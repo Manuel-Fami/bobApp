@@ -52,8 +52,8 @@ jobs:
         run: npm run build
 
       - name: Run Tests and Generate Code Coverage Report
-        # run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
-        run: ng test --code-coverage --browsers=ChromeHeadless
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
+        # run: ng test --code-coverage --browsers=ChromeHeadless
 
       - name: Upload Code Coverage Report
         uses: actions/upload-artifact@v4
@@ -65,17 +65,7 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: front
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=manuel-fami_bobApp_front
-            -Dsonar.organization=manuel-fami
-            -Dsonar.sources=front/src/app
-            -Dsonar.sourceEncoding=UTF-8
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.test.sources=front/src/app
-            -Dsonar.test.inclusions=**/*.spec.ts,front/src/tests.ts
-            -Dsonar.javascript.lcov.reportPaths=./coverage/bobapp/lcov.info
-            -Dsonar.exclusions=node_modules/**,dist/**,.vscode/**,.github/**,front/src/environments/**
-            -Dsonar.project.monorepo.enabled=true
