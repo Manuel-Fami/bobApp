@@ -87,4 +87,5 @@ jobs:
           context: ./back
           file: ./back/Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/bobapp-back:latest
