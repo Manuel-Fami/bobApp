@@ -62,11 +62,11 @@ jobs:
           overwrite: true
           if-no-files-found: error
 
-      - name: Install SonarScanner
-        run: |
-          curl -sS https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip -o sonar-scanner.zip
-          unzip sonar-scanner.zip
-          sudo mv sonar-scanner-*/bin/sonar-scanner /usr/local/bin/
+      # - name: Install SonarScanner
+      #   run: |
+      #     curl -sS https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip -o sonar-scanner.zip
+      #     unzip sonar-scanner.zip
+      #     sudo mv sonar-scanner-*/bin/sonar-scanner /usr/local/bin/
 
       - name: Run SonarCloud Analysis
         env:
