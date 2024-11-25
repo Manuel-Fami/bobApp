@@ -53,7 +53,6 @@ jobs:
 
       - name: Run Tests and Generate Code Coverage Report
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
-        # run: ng test --code-coverage --browsers=ChromeHeadless
 
       - name: Upload Code Coverage Report
         uses: actions/upload-artifact@v4
