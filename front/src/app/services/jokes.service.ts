@@ -13,6 +13,7 @@ export class JokesService {
     new BehaviorSubject<Joke | null>(null);
 
   constructor(private httpClient: HttpClient) {
+    console.log('test');
     this.getRandomJoke();
   }
 
