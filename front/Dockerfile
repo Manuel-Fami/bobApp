@@ -1,10 +1,13 @@
-FROM node:16 as build
+# FROM node:16 as build
+FROM node:16-alpine as build
 
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 
-RUN yarn
-RUN npm run build
+# RUN yarn
+# RUN npm run build
+RUN yarn install --frozen-lockfile
+
  
 FROM nginx:latest as production
 
